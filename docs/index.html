@@ -17,9 +17,9 @@
     <span>Phone<span class="gold">Fix</span>Tool</span>
   </a>
   <nav>
-    <a href="#features">Features</a>
     <a href="#screenshots">Screenshots</a>
     <a href="#models">Supported Models</a>
+    <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -52,6 +52,47 @@
       <div class="stat"><strong>7 days</strong><span>free trial</span></div>
       <div class="stat"><strong>$12</strong><span>starts at</span></div>
     </div>
+  </section>
+
+  <!-- SCREENSHOTS — right at the top -->
+  <section id="screenshots" class="section">
+    <h2>Screenshots</h2>
+    <p class="section-sub">Real screenshots of the actual tool — not mockups.</p>
+    <figure class="shot">
+      <img src="assets/screenshot-dashboard.png" alt="PhoneFixTool Dashboard — main window with the black console log" loading="lazy">
+      <figcaption>Dashboard — the main window with the live console log.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="assets/screenshot-doctor.png" alt="PhoneFixTool Phone Doctor — health check with score and red BAD items" loading="lazy">
+      <figcaption>Phone Doctor — health score, GOOD / <span class="red">BAD</span> items and verdict.</figcaption>
+    </figure>
+  </section>
+
+  <!-- SUPPORTED MODELS — directly below the pictures -->
+  <section id="models" class="section">
+    <h2>Supported Models</h2>
+    <p class="section-sub"><strong class="gold" id="total-count">4,746 supported models</strong>
+      — Samsung, Xiaomi, OPPO, vivo, Realme, Huawei, Honor, Motorola, Tecno,
+      OnePlus, Infinix, Nokia and more. Type a model name, code or chipset to search.</p>
+    <div class="search-box">
+      <input type="search" id="model-search" placeholder="Search a model… e.g. Galaxy A54, SM-A546E, Snapdragon 778G"
+             autocomplete="off" aria-label="Search supported models">
+      <select id="brand-filter" aria-label="Filter by brand">
+        <option value="">All brands</option>
+      </select>
+    </div>
+    <p id="model-status" class="status">Loading model list…</p>
+    <div class="table-wrap">
+      <table id="model-table">
+        <thead>
+          <tr><th>Brand</th><th>Model</th><th>Code</th><th>Chipset</th><th>Features</th></tr>
+        </thead>
+        <tbody id="model-rows">
+          <tr><td colspan="5">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">Showing the first 100 matches. Refine your search to narrow the list.</p>
   </section>
 
   <!-- FEATURES -->
@@ -118,47 +159,6 @@
     <h2>Made by a shopkeeper, for shopkeepers.</h2>
     <p>Qadari Mobile Software — Kandahar, Afghanistan. Every feature was built
       from real shop work, not copied from another tool.</p>
-  </section>
-
-  <!-- SCREENSHOTS -->
-  <section id="screenshots" class="section">
-    <h2>Screenshots</h2>
-    <p class="section-sub">Real screenshots of the actual tool — not mockups.</p>
-    <figure class="shot">
-      <img src="assets/screenshot-dashboard.png" alt="PhoneFixTool Dashboard — main window with the black console log" loading="lazy">
-      <figcaption>Dashboard — the main window with the live console log.</figcaption>
-    </figure>
-    <figure class="shot">
-      <img src="assets/screenshot-doctor.png" alt="PhoneFixTool Phone Doctor — health check with score and red BAD items" loading="lazy">
-      <figcaption>Phone Doctor — health score, GOOD / <span class="red">BAD</span> items and verdict.</figcaption>
-    </figure>
-  </section>
-
-  <!-- SUPPORTED MODELS -->
-  <section id="models" class="section">
-    <h2>Supported Models</h2>
-    <p class="section-sub"><strong class="gold" id="total-count">4,746 supported models</strong>
-      — Samsung, Xiaomi, OPPO, vivo, Realme, Huawei, Honor, Motorola, Tecno,
-      OnePlus, Infinix, Nokia and more. Type a model name, code or chipset to search.</p>
-    <div class="search-box">
-      <input type="search" id="model-search" placeholder="Search a model… e.g. Galaxy A54, SM-A546E, Snapdragon 778G"
-             autocomplete="off" aria-label="Search supported models">
-      <select id="brand-filter" aria-label="Filter by brand">
-        <option value="">All brands</option>
-      </select>
-    </div>
-    <p id="model-status" class="status">Loading model list…</p>
-    <div class="table-wrap">
-      <table id="model-table">
-        <thead>
-          <tr><th>Brand</th><th>Model</th><th>Code</th><th>Chipset</th><th>Features</th></tr>
-        </thead>
-        <tbody id="model-rows">
-          <tr><td colspan="5">Loading…</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="hint">Showing the first 100 matches. Refine your search to narrow the list.</p>
   </section>
 
   <!-- PRICING -->
