@@ -106,9 +106,9 @@ h3 { margin: 0 0 8px; }
 .band p { color: #bbb; margin: 0; }
 
 /* Screenshots */
-.shot { margin: 24px 0; }
+.shot { margin: 24px 0; text-align: center; }
 .shot img {
-  width: 100%; height: auto; display: block;
+  width: 100%; max-width: 680px; height: auto; display: block; margin: 0 auto;
   border: 1px solid #333; border-radius: 8px;
 }
 .shot figcaption { color: #999; margin-top: 8px; text-align: center; }
