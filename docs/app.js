@@ -85,3 +85,20 @@
   brandFilter.addEventListener("change", filter);
   load();
 })();
+
+/* Count-up stats (Design 1 gold hero). */
+(function () {
+  "use strict";
+  var els = document.querySelectorAll(".count");
+  els.forEach(function (el) {
+    var target = parseInt(el.getAttribute("data-target"), 10);
+    var start = Date.now(), dur = 1400;
+    function tick() {
+      var p = Math.min(1, (Date.now() - start) / dur);
+      var v = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      el.textContent = v.toLocaleString("en-US");
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+})();
