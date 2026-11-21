@@ -1,4 +1,6 @@
-/* PhoneFixTool site — all black, green-on-black log accents, gold only. */
+/* PhoneFixTool site — Design 15: calm gold console, just a little motion.
+   Black + gold, green-on-black log. Only three gentle animations:
+   blinking cursor, breathing download button, slow console glow. */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -11,6 +13,17 @@ body {
 a { color: #d4af37; }
 .gold { color: #d4af37; }
 .red { color: #ff4444; font-weight: bold; }
+
+/* Gentle motion only — nothing else moves */
+@keyframes cursor-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes btn-breathe {
+  0%, 100% { box-shadow: 0 0 0 rgba(201, 162, 39, 0); }
+  50% { box-shadow: 0 4px 22px rgba(201, 162, 39, 0.4); }
+}
+@keyframes console-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(201, 162, 39, 0.12); }
+  50% { box-shadow: 0 0 20px rgba(201, 162, 39, 0.32); }
+}
 
 /* Top bar */
 .topbar {
@@ -27,6 +40,7 @@ a { color: #d4af37; }
 .topbar nav { display: flex; gap: 18px; flex-wrap: wrap; }
 .topbar nav a { color: #ccc; text-decoration: none; font-size: 15px; }
 .topbar nav a:hover { color: #d4af37; }
+.live-chip { color: #33cc33; font-size: 13px; font-weight: bold; white-space: nowrap; }
 
 main { max-width: 1020px; margin: 0 auto; padding: 0 20px 40px; }
 .section { margin-top: 64px; }
@@ -36,18 +50,16 @@ h2 { font-size: 28px; border-bottom: 1px solid #222; padding-bottom: 8px; }
 h3 { margin: 0 0 8px; }
 
 /* Hero */
-.hero { text-align: center; padding: 56px 0 8px; }
-.version-badge {
-  display: inline-block; border: 1px solid #d4af37; color: #d4af37;
-  border-radius: 20px; padding: 4px 16px; font-size: 14px; margin: 0;
-}
+.hero { text-align: center; padding: 48px 0 8px; }
 .tagline { font-size: 19px; color: #bbb; max-width: 640px; margin: 8px auto 24px; }
 .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .btn-download {
-  background: #d4af37; color: #000; font-weight: bold; font-size: 18px;
+  background: linear-gradient(135deg, #f5d76e, #c9a227); color: #111;
+  font-weight: bold; font-size: 18px;
   padding: 14px 28px; border-radius: 8px; text-decoration: none;
+  animation: btn-breathe 4s ease-in-out infinite;
 }
-.btn-download:hover { background: #e8c34a; }
+.btn-download:hover { filter: brightness(1.08); }
 .btn-ghost {
   border: 1px solid #d4af37; color: #d4af37; padding: 13px 24px;
   border-radius: 8px; text-decoration: none; font-weight: bold;
@@ -56,24 +68,42 @@ h3 { margin: 0 0 8px; }
 .trial-note { color: #999; margin-top: 14px; }
 .stats { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
 .stat {
-  background: #0d0d0d; border: 1px solid #222; border-radius: 8px;
+  background: #0a0a0a; border: 1px solid #262626; border-radius: 8px;
   padding: 14px 24px; min-width: 150px;
 }
 .stat strong { display: block; font-size: 26px; color: #d4af37; }
 .stat span { color: #999; font-size: 14px; }
+
+/* Console — the tool's own log */
 .console {
-  text-align: left; background: #000; border: 1px solid #222; border-radius: 8px;
+  text-align: left; background: #050505; border: 1px solid #c9a227; border-radius: 10px;
   font-family: Consolas, "Courier New", monospace; font-size: 14px;
-  max-width: 560px; margin: 32px auto 0; padding: 16px 20px; white-space: pre-wrap;
+  max-width: 560px; margin: 0 auto 8px; padding: 16px 20px; white-space: pre-wrap;
+  animation: console-glow 5s ease-in-out infinite;
 }
 .log-ok { color: #33cc33; }
 .log-bad { color: #ff4444; }
+.log-cmd { color: #888; }
+.cursor { color: #f5d76e; animation: cursor-blink 1.1s steps(1) infinite; }
 
 /* Cards */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-.card { background: #0d0d0d; border: 1px solid #222; border-radius: 8px; padding: 20px; }
-.card h3 { color: #fff; }
+.card {
+  background: #0a0a0a; border: 1px solid #262626; border-left: 3px solid #c9a227;
+  border-radius: 8px; padding: 20px;
+}
+.card .num { color: #d4af37; font-weight: 800; font-size: 13px; }
+.card h3 { color: #fff; margin-top: 4px; }
 .card p { color: #bbb; margin: 0; }
+
+/* Shopkeeper band */
+.band {
+  margin-top: 64px;
+  background: linear-gradient(135deg, #1a1503, #0d0d0d);
+  border: 1px solid #c9a227; border-radius: 12px; padding: 24px 28px;
+}
+.band h2 { border: none; padding: 0; margin: 0 0 8px; color: #d4af37; }
+.band p { color: #bbb; margin: 0; }
 
 /* Screenshots */
 .shot { margin: 24px 0; }
@@ -105,10 +135,10 @@ tbody tr:hover td { background: #141414; }
 /* Pricing */
 .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
 .price-card {
-  background: #0d0d0d; border: 1px solid #222; border-radius: 8px;
+  background: #0a0a0a; border: 1px solid #262626; border-radius: 8px;
   padding: 24px; text-align: center;
 }
-.price-card.featured { border-color: #d4af37; }
+.price-card.featured { border-color: #d4af37; background: #1a1503; }
 .price-card h3 { color: #fff; }
 .price { font-size: 40px; font-weight: bold; color: #d4af37; margin: 8px 0; }
 .price-card p { color: #bbb; margin: 0; }
@@ -117,10 +147,19 @@ tbody tr:hover td { background: #141414; }
 .limits { background: #0d0d0d; border: 1px solid #333; border-radius: 8px; padding: 8px 24px 16px; }
 .limits li { margin: 8px 0; color: #bbb; }
 .contact-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-whatsapp {
+  background: #0d2b12; border: 1px solid #22c55e; color: #fff;
+  padding: 13px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;
+}
+.btn-telegram {
+  background: #0d1f33; border: 1px solid #38bdf8; color: #fff;
+  padding: 13px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;
+}
 
 footer { text-align: center; color: #777; border-top: 1px solid #222; padding: 20px; font-size: 14px; }
 
 @media (max-width: 600px) {
   h1 { font-size: 32px; }
-  .hero { padding-top: 36px; }
+  .hero { padding-top: 32px; }
+  .live-chip { display: none; }
 }
